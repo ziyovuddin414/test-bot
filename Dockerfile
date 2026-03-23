@@ -10,7 +10,5 @@ COPY . .
 
 RUN mkdir -p /app/data && chmod 777 /app/data
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
-CMD ["/start.sh"]
+EXPOSE 8080
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "/app", "/app/index.php"]
