@@ -10,4 +10,7 @@ COPY . .
 
 RUN mkdir -p /app/data && chmod 777 /app/data
 
-CMD php -S 0.0.0.0:${PORT:-8080} -t /app /app/index.php
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
